@@ -34,6 +34,12 @@ The following options prevent functions or modules from being replaced by hack c
 * :option:`--assert-call`
 * :option:`--assert-import`
 
+.. important::
+
+   If using :option:`--enable-rft`, please also check :doc:`../topic/rftmode`. The default way is simple to use, but may leave more names not changed. If need rename more names, try to use **rft-auto-include** method.
+
+   If using :option:`--enable-bcc`, please also check :doc:`../topic/rftmode` to make sure most of scripts are converted to C code
+
 What's the best performance pyarmor could do?
 =============================================
 
@@ -105,5 +111,7 @@ Reforming scripts to improve security
 Pyarmor will clear the module level code after the module is imported, the injected code could not get any module level code because it's gone.
 
 But the main script module level code is never cleared, so moving unnecessary code here to another module could improve security.
+
+Note that for `BCC Mode`, the module level code is not converted to C code, so do not move code to module level if using :option:`--enable-bcc`.
 
 .. include:: ../_common_definitions.txt
