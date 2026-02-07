@@ -210,7 +210,8 @@ class Register(object):
 
         logger.error('please make sure the activation file is '
                      'pure text file, the content starts with `Dear `, '
-                     'and includes one activation code in one line')
+                     'and includes the activation code'
+                     '(its length is 192 and no line break)')
         raise CliError('invalid activation file "%s"' % filename)
 
     def _register_offline_license(self, fzip, namelist):
